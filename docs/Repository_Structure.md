@@ -31,6 +31,23 @@ layered-section-geometry-lsg/
 │ ├─ Traffic-SmartRoad/
 │ └─ Bio-Microscope/
 ├─ docs/ # 全仓库标准化文档集合
+│ ├─ Repository_Structure.md    # 仓库架构总文档（已存在）
+│ ├─ api_docs/                   # 底层库接口文档
+│ ├─ exp_reports/                # 各行业实验验证报告
+│ └─ preprints/                  # 预印本论文总目录【新增】
+   ├─ GYY-GOES/                # 全域本源演化体系主论文
+   │  ├─ main_manuscript_zh.md # 中文版完整预印本正文
+   │  ├─ main_manuscript_en.md # 英文对照翻译稿
+   │  ├─ appendix/             # 全套数学附录
+   │  │  ├─ appendix_A_axioams.md    # 四条本源公理严格数学表述
+   │  │  ├─ appendix_B_GDE_eq.md     # 普适动力学方程完整推导
+   │  │  ├─ appendix_C_LSG_matrix.md  # LSG矩阵形式完整推导（本次新增）
+   │  │  ├─ appendix_D_fdm_code.md   # 有限差分代码理论对应说明
+   │  │  └─ appendix_E_prediction.md # 可实验定量预言计算过程
+   │  ├─ figures/              # 论文矢量示意图、几何截面图
+   │  └─ preprint_pdf/         # 编译完成PDF成品（中英双版）
+   ├─ lsg_engineering/         # LSG工程应用专项论文（CT/导航/工业检测）
+   └─ supplementary_material/  # 论文配套补充材料、数值算例数据
 └─ 【批次 4 预留空文件夹（待开发 v1.0）】
 ├─ Meteorology-Atmosphere/
 └─ Archaeology-RelicScan/
