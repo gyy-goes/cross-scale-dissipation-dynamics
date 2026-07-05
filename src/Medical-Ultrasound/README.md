@@ -1,33 +1,17 @@
 
-##### scene_constraint/us_acoustic_constraint.py
-```python
-"""
-超声声学约束模块（场景专属）
-底层依赖：Common-LSG constraint_algo 基类
-功能：基于声速、声学阻抗约束组织界面，适配超声传播物理特性
-"""
-from Common_LSG.constraint_algo import BaseSectionConstraint
+# Medical-Ultrasound 超声成像三维重建模块
+## 模块定位
+针对超声成像物理特性优化的LSG三维重建模块，解决超声噪声大、伪影多、灰度不均的重建难题。
 
-class USAcousticConstraint(BaseSectionConstraint):
-    # 人体组织标准声速约束（m/s）
-    TISSUE_SOUND_SPEED = {
-        "water": 1540,
-        "soft_tissue": 1580,
-        "bone": 4080,
-        "air": 330
-    }
+## 核心功能
+1. 超声DICOM、射频信号多格式解析
+2. 斑点噪声自适应抑制、混响伪影消除
+3. 声速、声学阻抗物理约束，提升边界重建精度
+4. 深度衰减自动补偿，适配层级积分计算
 
-    def acoustic_interface_constrain(self, section_matrix, tissue_sound_speed=1580):
-        """
-        声学界面约束：基于声阻抗差异强化组织边界，提升分层重建精度
-        """
-        impedance_matrix = section_matrix * tissue_sound_speed
-        constrained_matrix = self.gradient_boundary_constrain(impedance_matrix, threshold=0.15)
-        return constrained_matrix
+## 依赖
+- 底层内核：Common-LSG v0.1+
+- 第三方依赖：numpy, pydicom
 
-    def depth_attenuation_compensate(self, section_stack, frequency=3.5):
-        """
-        深度衰减补偿：按超声传播深度修正灰度衰减，适配层级积分
-        """
-        compensated_stack = self.depth_gradient_correct(section_stack, attenuation_coeff=0.5*frequency)
-        return compensated_stack
+## 开源声明
+本模块场景优化代码遵循MIT协议，底层几何内核永久归入人类公共知识领域。
