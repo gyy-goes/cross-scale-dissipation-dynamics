@@ -16,3 +16,7 @@ laspy>=2.4.0
 
 # ---------- 可选：三维模型导出与可视化通用 ----------
 trimesh>=3.9.0
+代码基于 Python/C++，需要补齐医学影像依赖库： 
+• DICOM 读取：pydicom、SimpleITK 
+• 3D 体渲染、网格重建：VTK、Open3D、numpy、scipy 
+• 可视化输出：matplotlib、mayavi
